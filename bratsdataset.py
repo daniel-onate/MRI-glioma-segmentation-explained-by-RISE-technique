@@ -30,13 +30,19 @@ class BratsDataset(Dataset):
         image = np.asanyarray(image.dataobj, dtype=np.float32)
         mask = np.asanyarray(mask.dataobj, dtype=np.float32)
 
+        #padding so that the unet concat works
+        image = np.pad(image, ((0, 0), (0, 0), (2, 3)), mode='constant', constant_values=0)
+        mask = np.pad(mask, ((0, 0), (0, 0), (2, 3)), mode='constant', constant_values=0)
+
+        #changing labels 1, 2 and 4 into 1
         mask = mask > 0
         mask = mask.astype(np.float32)
 
-        #windowing
-
-        #normalizing
-         # flair_normalized = (flair_data - flair_data.mean()) / flair_data.std()
+        #windowing and z score normalizing
+        image = (image - image.mean()) / image.std()
+        p1 = np.percentile(image, 1)
+        p99 = np.percentile(image, 99)
+        image = np.clip(image, p1, p99)
 
         image = np.expand_dims(image, axis=0)
         mask = np.expand_dims(mask, axis=0)

@@ -9,7 +9,7 @@ upconv_kernel_size = 2
 upconv_stride = 2
 pool_kernel_size = 2
 pool_stride = 2
-#starting channel size of 2**3
+#starting channel size of 2**#
 start_channels = 3
 
 
