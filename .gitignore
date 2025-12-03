@@ -3,3 +3,11 @@ data
 images
 __pycache__
 *pyc
+*pt
+*.out
+old*.ipynb
+old*.py
+
+visualizing.ipynb
+
+unet3dloop.py

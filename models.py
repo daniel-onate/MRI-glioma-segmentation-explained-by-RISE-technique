@@ -10,7 +10,7 @@ upconv_stride = 2
 pool_kernel_size = 2
 pool_stride = 2
 #starting channel size of 2**#
-start_channels = 3
+start_channels = 1
 
 
 class Unet3Dbrats(nn.Module):
