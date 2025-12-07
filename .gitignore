@@ -8,4 +8,6 @@ __pycache__
 old*.ipynb
 old*.py
 
+*.png
+
 visualizing.ipynb
