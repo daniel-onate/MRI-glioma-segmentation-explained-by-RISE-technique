@@ -1,6 +1,7 @@
 .vscode
 data
 images
+models
 __pycache__
 *pyc
 *pt
